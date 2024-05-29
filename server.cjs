@@ -48,7 +48,7 @@ wss.on('connection', async function connection(ws) {
                     broadcast({action: 'PlayerLeave'}, roomCode);
                     broadcast({action: 'StateChange', gameState: {...rooms[roomCode].gameState, playerStatus: 'Staging...', opponentStatus: 'Staging...',}}, roomCode);
                 }
-                else if(Object.keys(rooms[roomCode].players).length === 1){
+                else if(Object.keys(rooms[roomCode].players).length === 0){
                     delete rooms[roomCode];
                 }
             }

@@ -62,7 +62,7 @@
     let clientID = '';
     let turnID = -1;
     let ready = false;
-    let roomCode = '12345'; // User-entered room code
+    let roomCode = ''; // User-entered room code
     let playerScore = 0;
     let playerMisses = 0;
     let opponentScore = 0;
@@ -472,8 +472,12 @@
     </section>
     {/if}
 </nav>
+
+<svelte:head>
+    <title>Battleship {roomCode}</title> 
+</svelte:head>
+
 <main class="w-full min-h-[40vh] flex flex-wrap px-8 lg:px-20 2xl:px-32 py-12 gap-4">
-    
     {#if !ws}
         <div class="mx-auto w-fit lg:m-0 lg:w-full flex flex-col gap-4 h-fit ">
             <h1 class="text-3xl">Join a room to play!</h1>

@@ -218,10 +218,6 @@ wss.on('connection', async function connection(ws) {
         try {
             const res = JSON.parse(message);
             const roomCode = res.roomCode;
-            // if(!rooms[roomCode]){
-                // res.action === 'Join' ? createRoom(roomCode) : ws.send(JSON.stringify({action: 'GameFull'}));
-                // return;
-            // }
             if(!rooms[roomCode]){
                 createRoom(roomCode);
                 console.log("Message from server ", res);

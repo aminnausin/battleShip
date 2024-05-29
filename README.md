@@ -1,38 +1,23 @@
-# create-svelte
+# Svelte battleship clone
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is a simple battleship clone built with Svelte, Tailwind and Express that facilitates online multiplayer. UI is heavily inspired by Phil Goodwin's design on figma but fully custom built for Tailwind. Sounds were borrowed from some strategy games I play for fun and added effect.
 
-## Creating a project
+## Preview
 
-If you're seeing this, you've probably already done this step. Congrats!
+|![Game Setup](https://github.com/aminnausin/battleShip/assets/83550431/0ccfaebc-62fb-4aca-b043-0044f6e4c457)|![Game In Play](https://github.com/aminnausin/battleShip/assets/83550431/c27a13b4-9e1e-4e0a-a8b0-354422fbe9af)|
+|:-:|:-:|
+|Game Setup|Game in Play|
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- Design: figma.com/community/file/954838223155879312/battleship
+- Sounds: Sid Meier's Civilization V, Sid Meier's Civilization VI, Minecraft
+- Server: express.js
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Running
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To start a local server:
 
 ```bash
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm run server
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

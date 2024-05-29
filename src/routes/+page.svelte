@@ -481,7 +481,7 @@
     {#if !ws}
         <div class="mx-auto w-fit lg:m-0 lg:w-full flex flex-col gap-4 h-fit ">
             <h1 class="text-3xl">Join a room to play!</h1>
-            <p>Enter a room code with 5 characters. A friend with the same code will not play against you.</p>
+            <p>Enter a room code with 5 numbers. A friend with the same code will play against you.</p>
             <div class="flex flex-wrap space-x-4 items-center bg-neutral-100 rounded-md p-2 shadow-md w-fit h-fit">
                 <label for="username">Enter a username:</label>
                 <input name="username" placeholder="Enter a username" class="rounded-md border-gray-300 p-1 px-3 focus:ring-indigo-400" required minlength="1" maxlength="20" bind:value={username}>

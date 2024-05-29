@@ -260,7 +260,7 @@
         placedShips = [];
         ready = false;
 
-        ws.send(JSON.stringify({action: 'Reset', board: playerCells, placedShips, clientID}))
+        ws.send(JSON.stringify({action: 'Reset', board: playerCells, placedShips, clientID, roomCode}))
 
         if(!fromOpponentLeave) {
             toast.success('Reset game!'); 
@@ -287,7 +287,7 @@
         if(!ws) return; 
         if (ready) {
             ready = false;
-            ws.send(JSON.stringify({action: 'UnReady', clientID}));
+            ws.send(JSON.stringify({action: 'UnReady', clientID, roomCode}));
         }
         else{
             if(placedShips.length < 6) {
@@ -296,7 +296,7 @@
                 return;
             }
 
-            ws.send(JSON.stringify({action: 'Ready', clientID}));
+            ws.send(JSON.stringify({action: 'Ready', clientID, roomCode}));
             ready = true;
         }
     };
@@ -365,7 +365,7 @@
             }
         }
 
-        ws.send(JSON.stringify({action: 'PlaceShip', clientID, board, shipData: {id: ship.id, name: ship.name, length: ship.length, direction: ship.direction, health: ship.length}}))
+        ws.send(JSON.stringify({action: 'PlaceShip', clientID, board, shipData: {id: ship.id, name: ship.name, length: ship.length, direction: ship.direction, health: ship.length}, roomCode}))
 
         return true;
     }
@@ -484,7 +484,7 @@
             </div>
         </div>
     {:else}
-        <h1 class="flex w-full text-3xl items-center justify-center lg:justify-start ">Joined room: {gameState.turn === 0 ? ready ? 'Ready' : 'Not Ready' : 'In Play'}</h1>
+        <h1 class="flex w-full text-3xl items-center justify-center lg:justify-start ">Joined room: {roomCode} ({gameState.turn === 0 ? ready ? 'Ready' : 'Not Ready' : 'In Play'})</h1>
         <div class="flex flex-wrap justify-center w-full gap-6 xl:gap-20">
             <div id="board-player" class="max-w-[196px] md:max-w-[284px] lg:max-w-[372px] flex-col space-y-4" >
                 <section id="playerHeader" class="flex flex-row-reverse gap-2 w-full">
@@ -640,7 +640,7 @@
                                                     sounds.sound_action_negative.play();
                                                     toast.error("Reset the game to play again!");
                                                 } else if (gameState.turn === 1 || gameState.turn === 2){
-                                                    ws.send(JSON.stringify({action: 'Shot', i, j, clientID}));
+                                                    ws.send(JSON.stringify({action: 'Shot', i, j, clientID, roomCode}));
                                                 }                                       
                                             }}>
                                             <Cell cellData={{cellState: opponentCells[i][j].cellState, shipPart: opponentCells[i][j].shipPart, direction: opponentCells[i][j].direction, isPlayer: false}}> <!-- cellState={Math.min(cells[i][j], 0)} --></Cell>

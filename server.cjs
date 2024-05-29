@@ -20,8 +20,6 @@ var rooms = {};
 
 var allPlayers = {};
 
-let turnQueue = [];
-
 wss.on('connection', async function connection(ws) {
     const broadcast = (msg, roomCode, antiTarget = null) => {
         for (let client in rooms[roomCode].players) {
@@ -49,6 +47,9 @@ wss.on('connection', async function connection(ws) {
                 if(Object.keys(rooms[roomCode].players).length === 1){
                     broadcast({action: 'PlayerLeave'}, roomCode);
                     broadcast({action: 'StateChange', gameState: {...rooms[roomCode].gameState, playerStatus: 'Staging...', opponentStatus: 'Staging...',}}, roomCode);
+                }
+                else if(Object.keys(rooms[roomCode].players).length === 1){
+                    delete rooms[roomCode];
                 }
             }
         }

@@ -8,7 +8,7 @@ This is a simple battleship clone built with Svelte, Tailwind and Express that f
 |:-:|:-:|
 |Game Setup|Game in Play|
 
-- Design: figma.com/community/file/954838223155879312/battleship
+- Design: [Figma Community](figma.com/community/file/954838223155879312/battleship)
 - Sounds: Sid Meier's Civilization V, Sid Meier's Civilization VI, Minecraft
 - Server: express.js
 
